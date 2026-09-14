@@ -12,7 +12,7 @@ export default function Home() {
   const t = useTranslations('Hero');
 
   return (
-    <div className="flex flex-col items-center w-full relative">
+    <div className="w-full relative">
       <HeroSection />
       
       <AboutSection />

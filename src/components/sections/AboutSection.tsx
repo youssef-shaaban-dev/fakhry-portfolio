@@ -2,7 +2,7 @@ import { FadeUp } from '@/components/animations/FadeUp';
 
 export function AboutSection() {
   return (
-    <section id="about" className="min-h-screen w-full py-32 px-6 lg:px-12 relative z-10">
+    <section id="about" className="min-h-screen w-full py-32 px-6 lg:px-12 relative z-10 bg-[var(--background)] shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-[var(--foreground)]/5">
       <div className="max-w-[1400px] mx-auto w-full">
         <FadeUp>
           <h2 className="text-5xl md:text-7xl font-bold font-heading mb-16">About <span className="text-[var(--accent)]">Me</span></h2>

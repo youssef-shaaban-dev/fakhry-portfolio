@@ -7,7 +7,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-8 px-6 border-t border-[var(--foreground)]/10 text-center text-sm text-[var(--foreground)]/60">
+    <footer className="py-8 px-6 border-t border-[var(--foreground)]/10 text-center text-sm text-[var(--foreground)]/60 bg-[var(--background)] relative z-10">
       <p>© {year} Fakhry. All rights reserved.</p>
     </footer>
   );
