@@ -68,9 +68,10 @@ export default function Home() {
         ]}
       />
       
-      <JourneySection />
       
       <ConnectSection />
+
+      <JourneySection />
     </div>
   );
 }
