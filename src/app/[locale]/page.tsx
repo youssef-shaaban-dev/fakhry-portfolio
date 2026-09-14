@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { WorkCarousel } from '@/components/ui/WorkCarousel';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
+import { SkillsSection } from '@/components/sections/SkillsSection';
 import { JourneySection } from '@/components/sections/JourneySection';
 import { ConnectSection } from '@/components/sections/ConnectSection';
 
@@ -15,6 +16,8 @@ export default function Home() {
       <HeroSection />
       
       <AboutSection />
+      
+      <SkillsSection />
       
       {/* Video Work Section */}
       <WorkCarousel 
