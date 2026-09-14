@@ -1,8 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { FadeUp } from "@/components/animations/FadeUp";
-import clsx from "clsx";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface WorkItem {
   id: string;
@@ -19,97 +24,111 @@ interface WorkCarouselProps {
 }
 
 export function WorkCarousel({ title, subtitle, items, accentColor = "var(--accent)" }: WorkCarouselProps) {
-  const [activeIndex, setActiveIndex] = useState(1); // Default to middle item if 3 items
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardsWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !cardsWrapperRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLElement>('.work-card');
+      
+      // Initialize cards 3D layout
+      gsap.set(cards, {
+        xPercent: (i) => i * 85, // Space them out horizontally 85% of their width
+        rotateY: (i) => i === 0 ? 0 : -20, // First is flat, others are tilted backwards
+        scale: (i) => i === 0 ? 1 : 0.75, // First is full size
+        opacity: (i) => i === 0 ? 1 : 0.4, // First is fully opaque
+        zIndex: (i) => 50 - i
+      });
+
+      // Create a scrub timeline tied to the pinned section
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "center center", 
+          end: `+=${items.length * 800}`, // Scroll distance dictates animation duration
+          pin: true,
+          scrub: 1, // Smooth scrubbing
+        }
+      });
+
+      // For each step (transitioning from card i to i+1)
+      for (let i = 0; i < items.length - 1; i++) {
+        // We move ALL cards left by 85%
+        tl.to(cards, {
+          xPercent: `-=${85}`,
+          ease: "none",
+          duration: 1
+        }, i); // At time 'i'
+        
+        // The card coming into view (i + 1)
+        tl.to(cards[i + 1], {
+          rotateY: 0,
+          scale: 1,
+          opacity: 1,
+          zIndex: 50, // Bring to front
+          ease: "power2.inOut",
+          duration: 1
+        }, i);
+
+        // The card leaving view to the left (i)
+        tl.to(cards[i], {
+          rotateY: 20, // Tilt it the other way
+          scale: 0.75,
+          opacity: 0.4,
+          zIndex: 40 - i, // Send to back
+          ease: "power2.inOut",
+          duration: 1
+        }, i);
+      }
+      
+    }, containerRef);
+
+    return () => ctx.revert(); // Cleanup GSAP animations on unmount
+  }, [items.length]);
 
   return (
-    <section className="w-full py-32 px-6 lg:px-12 relative z-10 overflow-hidden">
-      <div className="max-w-[1600px] mx-auto w-full">
+    <section ref={containerRef} className="w-full h-screen flex flex-col justify-center px-6 lg:px-12 relative z-10 overflow-hidden bg-[var(--background)]">
+      <div className="max-w-[1600px] mx-auto w-full flex flex-col items-center">
         <FadeUp>
-          <div className="mb-16">
+          <div className="mb-12 text-center">
             <h2 className="text-5xl md:text-7xl font-bold font-heading mb-4">
               {title.split(' ').map((word, i) => (
                 <span key={i} className={i === 1 ? "text-[var(--accent)]" : ""}>{word} </span>
               ))}
             </h2>
-            <p className="text-[var(--foreground)]/60 max-w-2xl text-lg">
+            <p className="text-[var(--foreground)]/60 max-w-2xl mx-auto text-lg">
               {subtitle}
             </p>
           </div>
         </FadeUp>
 
-        <FadeUp delay={0.2} y={50}>
-          <div className="relative w-full h-[500px] flex items-center justify-center mt-12 perspective-[2000px]">
-            {items.map((item, index) => {
-              // Calculate relative position to active index
-              const offset = index - activeIndex;
-              const isCenter = offset === 0;
-              const isLeft = offset < 0;
-              const isRight = offset > 0;
+        {/* 3D Carousel Wrapper */}
+        <div ref={cardsWrapperRef} className="relative w-full h-[500px] mt-8 flex items-center justify-center perspective-[2000px]">
+          {items.map((item, index) => (
+            <div
+              key={item.id}
+              className="work-card absolute w-[80%] max-w-[800px] aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-[var(--foreground)]/10 bg-[#16161d]"
+              style={{ transformOrigin: "center center" }}
+            >
+              <img src={item.image} alt={item.title} className="w-full h-[75%] object-cover" />
               
-              // Base z-index: center is highest
-              const zIndex = isCenter ? 30 : 20 - Math.abs(offset);
-              
-              // Translation and rotation based on position
-              // We'll hardcode 3 main positions for simplicity, but it handles up to 5 decently
-              let transform = "";
-              let opacity = 1;
-              
-              if (isCenter) {
-                transform = "translateX(0) scale(1) rotateY(0deg)";
-                opacity = 1;
-              } else if (isLeft) {
-                transform = `translateX(-${40 + Math.abs(offset) * 10}%) scale(0.85) rotateY(15deg)`;
-                opacity = 0.5;
-              } else if (isRight) {
-                transform = `translateX(${40 + Math.abs(offset) * 10}%) scale(0.85) rotateY(-15deg)`;
-                opacity = 0.5;
-              }
-
-              return (
-                <div
-                  key={item.id}
-                  onClick={() => setActiveIndex(index)}
-                  className="absolute w-[70%] max-w-[700px] aspect-[16/9] transition-all duration-700 ease-out cursor-pointer rounded-2xl overflow-hidden shadow-2xl border border-[var(--foreground)]/10 bg-[#16161d]"
-                  style={{
-                    transform,
-                    zIndex,
-                    opacity,
-                  }}
-                >
-                  <img src={item.image} alt={item.title} className="w-full h-[75%] object-cover" />
-                  
-                  {/* Card Content Footer */}
-                  <div className="absolute bottom-0 left-0 w-full h-[25%] bg-[#1a1a24] p-6 flex flex-col justify-center border-t border-[var(--foreground)]/10">
-                    <h3 className="text-xl font-bold font-heading text-white mb-2">{item.title}</h3>
-                    <div className="flex gap-2">
-                      {item.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 bg-black/40 border border-[var(--foreground)]/10 rounded-full text-[10px] font-bold text-[var(--foreground)]/70 uppercase tracking-wider">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Overlay for non-active items */}
-                  {!isCenter && (
-                    <div className="absolute inset-0 bg-black/50 transition-opacity hover:bg-black/30"></div>
-                  )}
+              <div className="absolute bottom-0 left-0 w-full h-[25%] bg-[#1a1a24] p-6 flex flex-col justify-center border-t border-[var(--foreground)]/10">
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-2">{item.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {item.tags.map(tag => (
+                    <span key={tag} className="px-3 py-1 bg-black/40 border border-[var(--foreground)]/10 rounded-full text-[10px] md:text-xs font-bold text-[var(--foreground)]/70 uppercase tracking-wider">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              );
-            })}
-          </div>
-          
-          {/* Custom pagination / slider track */}
-          <div className="mt-16 max-w-md mx-auto h-1 bg-[var(--foreground)]/10 rounded-full overflow-hidden relative">
-            <div 
-              className="absolute top-0 bottom-0 bg-[var(--accent)] transition-all duration-500 rounded-full"
-              style={{
-                left: `${(activeIndex / Math.max(1, items.length - 1)) * 80}%`,
-                width: '20%'
-              }}
-            ></div>
-          </div>
-        </FadeUp>
+              </div>
+              
+              <div className="absolute inset-0 bg-black/30 pointer-events-none mix-blend-overlay"></div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
