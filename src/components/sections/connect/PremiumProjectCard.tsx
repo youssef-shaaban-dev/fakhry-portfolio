@@ -3,7 +3,7 @@ import { FadeUp } from '@/components/animations/FadeUp';
 export function PremiumProjectCard() {
   return (
     <FadeUp delay={0.2} y={30}>
-      <div className="w-full bg-[#111116] border border-[var(--foreground)]/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+      <div className="w-full bg-card border border-[var(--foreground)]/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
         {/* Decorative glows */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-[80px] group-hover:bg-green-500/10 transition-colors"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--accent)]/5 rounded-full blur-[80px] group-hover:bg-[var(--accent)]/10 transition-colors"></div>
@@ -26,9 +26,9 @@ export function PremiumProjectCard() {
               { num: "02", title: "Define scope and timing", desc: "Arabic or English - four quick steps" },
               { num: "03", title: "Choose your contact channel", desc: "WhatsApp username • Telegram" }
             ].map((step, i) => (
-              <div key={i} className="bg-[#16161d] border border-[var(--foreground)]/10 rounded-2xl p-6 relative">
+              <div key={i} className="bg-card-hover border border-[var(--foreground)]/10 rounded-2xl p-6 relative">
                 <div className="text-[10px] font-bold text-[var(--accent)] absolute top-6 right-6">{step.num}</div>
-                <div className="w-10 h-10 rounded-lg bg-[#1a1a24] border border-[var(--foreground)]/10 mb-12 flex items-center justify-center text-[var(--accent)]">
+                <div className="w-10 h-10 rounded-lg bg-panel border border-[var(--foreground)]/10 mb-12 flex items-center justify-center text-[var(--accent)]">
                   {/* Placeholder icons */}
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>

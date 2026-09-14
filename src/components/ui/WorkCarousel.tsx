@@ -109,13 +109,13 @@ export function WorkCarousel({ title, subtitle, items, accentColor = "var(--acce
           {items.map((item, index) => (
             <div
               key={item.id}
-              className="work-card absolute w-[80%] max-w-[800px] aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-[var(--foreground)]/10 bg-[#16161d]"
+              className="work-card absolute w-[80%] max-w-[800px] aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-[var(--foreground)]/10 bg-card-hover"
               style={{ transformOrigin: "center center" }}
             >
               <img src={item.image} alt={item.title} className="w-full h-[75%] object-cover" />
               
-              <div className="absolute bottom-0 left-0 w-full h-[25%] bg-[#1a1a24] p-6 flex flex-col justify-center border-t border-[var(--foreground)]/10">
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-2">{item.title}</h3>
+              <div className="absolute bottom-0 left-0 w-full h-[25%] bg-panel p-6 flex flex-col justify-center border-t border-[var(--foreground)]/10">
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-[var(--foreground)] mb-2">{item.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {item.tags.map(tag => (
                     <span key={tag} className="px-3 py-1 bg-black/40 border border-[var(--foreground)]/10 rounded-full text-[10px] md:text-xs font-bold text-[var(--foreground)]/70 uppercase tracking-wider">

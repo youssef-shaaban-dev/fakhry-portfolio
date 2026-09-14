@@ -8,7 +8,7 @@ export function HeroSection() {
         {/* Left Content */}
         <div className="flex flex-col items-start space-y-8 relative z-10">
           <FadeUp delay={0.2} y={20}>
-            <div className="flex items-center gap-4 bg-[#0a0a0c]/80 backdrop-blur border border-[var(--foreground)]/10 pr-6 rounded-full overflow-hidden">
+            <div className="flex items-center gap-4 bg-deep/80 backdrop-blur border border-[var(--foreground)]/10 pr-6 rounded-full overflow-hidden">
               <div className="w-16 h-16 bg-black flex items-center justify-center shrink-0">
                 <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=transparent" alt="Profile" className="w-full h-full object-cover opacity-80 mix-blend-screen" />
               </div>
@@ -66,16 +66,16 @@ export function HeroSection() {
             {/* Complex 3D Placeholder mimicking the iso factory */}
             <div className="relative w-full max-w-[800px] aspect-[4/3] perspective-[1000px] group">
               <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent)]/10 to-transparent blur-3xl rounded-full transform scale-110"></div>
-              <div className="absolute inset-0 border border-[var(--foreground)]/10 bg-[#0f0f13]/80 backdrop-blur-md rounded-2xl shadow-2xl transform rotateX-[20deg] rotateY-[-15deg] rotateZ-[5deg] transition-transform duration-1000 group-hover:rotateX-[15deg] group-hover:rotateY-[-10deg] flex flex-col p-8 overflow-hidden">
+              <div className="absolute inset-0 border border-[var(--foreground)]/10 bg-deep/80 backdrop-blur-md rounded-2xl shadow-2xl transform rotateX-[20deg] rotateY-[-15deg] rotateZ-[5deg] transition-transform duration-1000 group-hover:rotateX-[15deg] group-hover:rotateY-[-10deg] flex flex-col p-8 overflow-hidden">
                 <div className="text-[var(--accent)] font-heading text-xl font-bold mb-8">FAKHRY <span className="text-[var(--foreground)]">STUDIO</span></div>
                 
                 {/* Fake 3D objects */}
                 <div className="flex-1 relative">
-                  <div className="absolute bottom-10 left-10 w-32 h-8 bg-[#1a1a24] rounded border border-[var(--accent)]/30 transform -skew-x-12 flex items-center justify-center text-[10px] text-[var(--foreground)]/50 tracking-widest shadow-[0_0_15px_var(--accent)] shadow-[var(--accent)]/20">WEBSITE</div>
+                  <div className="absolute bottom-10 left-10 w-32 h-8 bg-panel rounded border border-[var(--accent)]/30 transform -skew-x-12 flex items-center justify-center text-[10px] text-[var(--foreground)]/50 tracking-widest shadow-[0_0_15px_var(--accent)] shadow-[var(--accent)]/20">WEBSITE</div>
                   <div className="absolute bottom-10 left-48 w-24 h-8 bg-[var(--accent)] rounded border border-[var(--foreground)]/20 transform -skew-x-12 flex items-center justify-center text-[10px] text-white tracking-widest shadow-[0_0_30px_var(--accent)] shadow-[var(--accent)]/40">APP</div>
                   
-                  <div className="absolute top-10 right-10 w-64 h-64 border border-[var(--foreground)]/10 bg-[#14141d] rounded-xl transform rotate-12 shadow-2xl overflow-hidden">
-                    <div className="h-6 w-full border-b border-[var(--foreground)]/10 bg-[#0a0a0c] flex items-center px-3 gap-1.5">
+                  <div className="absolute top-10 right-10 w-64 h-64 border border-[var(--foreground)]/10 bg-card rounded-xl transform rotate-12 shadow-2xl overflow-hidden">
+                    <div className="h-6 w-full border-b border-[var(--foreground)]/10 bg-deep flex items-center px-3 gap-1.5">
                       <div className="w-2 h-2 rounded-full bg-[var(--foreground)]/20"></div>
                       <div className="w-2 h-2 rounded-full bg-[var(--foreground)]/20"></div>
                       <div className="w-2 h-2 rounded-full bg-[var(--foreground)]/20"></div>

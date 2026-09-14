@@ -3,11 +3,27 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollToPlugin);
+}
 
 export function Header() {
   const t = useTranslations('Hero');
   const params = useParams();
   const locale = params.locale as string;
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: { y: id, autoKill: false },
+      ease: "power3.inOut"
+    });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-6 lg:px-12 py-6 flex justify-between items-center pointer-events-none">
@@ -23,11 +39,19 @@ export function Header() {
       
       {/* Centered Navigation */}
       <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 pointer-events-auto gap-8">
-        {['About', 'Dev Work', 'Projects', 'Design', 'Connect'].map((item) => (
-          <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm font-semibold tracking-wide hover:text-[var(--accent)] transition-colors">
-            {item}
-          </a>
-        ))}
+        {['About', 'Dev Work', 'Projects', 'Design', 'Connect'].map((item) => {
+          const targetId = `#${item.toLowerCase().replace(' ', '-')}`;
+          return (
+            <a 
+              key={item} 
+              href={targetId} 
+              onClick={(e) => handleNavClick(e, targetId)}
+              className="text-sm font-semibold tracking-wide hover:text-[var(--accent)] transition-colors"
+            >
+              {item}
+            </a>
+          );
+        })}
       </nav>
 
       {/* Right Settings (Will be handled by CustomizationPanel but we need to place it here if we move it, or just let CustomizationPanel handle its own absolute positioning) */}

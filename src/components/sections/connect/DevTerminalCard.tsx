@@ -3,7 +3,7 @@ import { FadeUp } from '@/components/animations/FadeUp';
 export function DevTerminalCard() {
   return (
     <FadeUp delay={0.4} y={30}>
-      <div className="w-full bg-[#111116] border border-[var(--foreground)]/10 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl relative overflow-hidden group">
+      <div className="w-full bg-card border border-[var(--foreground)]/10 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl relative overflow-hidden group">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30"></div>
         
         <div className="flex items-center gap-6 relative z-10 w-full md:w-auto">
@@ -16,8 +16,8 @@ export function DevTerminalCard() {
             <h3 className="text-2xl md:text-3xl font-heading font-bold mb-2">Enter the Fakhry developer mainframe.</h3>
             <p className="text-xs text-[var(--foreground)]/50 max-w-sm mb-4">Authenticate into a cinematic local shell with a live boot sequence, project intelligence and direct portfolio commands.</p>
             <div className="flex gap-2">
-              <span className="px-2 py-1 rounded bg-[#1a1a24] text-[8px] tracking-widest text-[var(--foreground)]/60 border border-[var(--foreground)]/10">LIVE BOOT</span>
-              <span className="px-2 py-1 rounded bg-[#1a1a24] text-[8px] tracking-widest text-[var(--foreground)]/60 border border-[var(--foreground)]/10">BILINGUAL SHELL</span>
+              <span className="px-2 py-1 rounded bg-panel text-[8px] tracking-widest text-[var(--foreground)]/60 border border-[var(--foreground)]/10">LIVE BOOT</span>
+              <span className="px-2 py-1 rounded bg-panel text-[8px] tracking-widest text-[var(--foreground)]/60 border border-[var(--foreground)]/10">BILINGUAL SHELL</span>
             </div>
           </div>
         </div>

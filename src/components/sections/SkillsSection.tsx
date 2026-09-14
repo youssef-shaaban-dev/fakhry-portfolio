@@ -46,15 +46,15 @@ export function SkillsSection() {
             <FadeUp delay={0.1}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.6)]"></div>
-                <h3 className="text-2xl font-bold font-heading text-white">Editing Tools</h3>
+                <h3 className="text-2xl font-bold font-heading text-[var(--foreground)]">Editing Tools</h3>
               </div>
               <div className="flex flex-wrap gap-4">
                 {SKILLS.video.map((skill) => (
-                  <div key={skill.name} className="flex items-center gap-3 bg-[#111116] border border-white/5 rounded-full pl-2 pr-5 py-2 transition-colors hover:border-orange-500/50 hover:bg-[#1a1a24]">
+                  <div key={skill.name} className="flex items-center gap-3 bg-card border border-[var(--foreground)]/5 rounded-full pl-2 pr-5 py-2 transition-colors hover:border-orange-500/50 hover:bg-panel">
                     <div className={clsx("w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold font-heading", skill.color)}>
                       {skill.short}
                     </div>
-                    <span className="text-sm font-semibold text-white/80">{skill.name}</span>
+                    <span className="text-sm font-semibold text-[var(--foreground)]/80">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -66,15 +66,15 @@ export function SkillsSection() {
             <FadeUp delay={0.2}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.6)]"></div>
-                <h3 className="text-2xl font-bold font-heading text-white">Data Tools</h3>
+                <h3 className="text-2xl font-bold font-heading text-[var(--foreground)]">Data Tools</h3>
               </div>
               <div className="flex flex-wrap gap-4">
                 {SKILLS.data.map((skill) => (
-                  <div key={skill.name} className="flex items-center gap-3 bg-[#111116] border border-white/5 rounded-full pl-2 pr-5 py-2 transition-colors hover:border-cyan-400/50 hover:bg-[#1a1a24]">
+                  <div key={skill.name} className="flex items-center gap-3 bg-card border border-[var(--foreground)]/5 rounded-full pl-2 pr-5 py-2 transition-colors hover:border-cyan-400/50 hover:bg-panel">
                     <div className={clsx("w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold font-heading", skill.color)}>
                       {skill.short}
                     </div>
-                    <span className="text-sm font-semibold text-white/80">{skill.name}</span>
+                    <span className="text-sm font-semibold text-[var(--foreground)]/80">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -85,10 +85,10 @@ export function SkillsSection() {
         {/* Filters */}
         <FadeUp delay={0.3}>
           <div className="mt-20 flex justify-center">
-            <div className="flex gap-2 bg-[#111116] border border-white/5 p-1.5 rounded-full">
+            <div className="flex gap-2 bg-card border border-[var(--foreground)]/5 p-1.5 rounded-full">
               <button 
                 onClick={() => setActiveFilter('All')}
-                className={clsx("flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all", activeFilter === 'All' ? 'bg-white/10 text-white' : 'text-white/40 hover:text-white/80')}
+                className={clsx("flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all", activeFilter === 'All' ? 'bg-[var(--foreground)]/10 text-[var(--foreground)]' : 'text-[var(--foreground)]/40 hover:text-[var(--foreground)]/80')}
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
                 All <span className="text-[10px] opacity-50 ml-1 font-mono">{totalSkills}</span>
@@ -96,7 +96,7 @@ export function SkillsSection() {
               
               <button 
                 onClick={() => setActiveFilter('Video')}
-                className={clsx("flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all", activeFilter === 'Video' ? 'bg-white/10 text-white' : 'text-white/40 hover:text-white/80')}
+                className={clsx("flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all", activeFilter === 'Video' ? 'bg-[var(--foreground)]/10 text-[var(--foreground)]' : 'text-[var(--foreground)]/40 hover:text-[var(--foreground)]/80')}
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
                 Video <span className="text-[10px] opacity-50 ml-1 font-mono">{SKILLS.video.length}</span>
@@ -104,7 +104,7 @@ export function SkillsSection() {
               
               <button 
                 onClick={() => setActiveFilter('Data')}
-                className={clsx("flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all", activeFilter === 'Data' ? 'bg-white/10 text-white' : 'text-white/40 hover:text-white/80')}
+                className={clsx("flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all", activeFilter === 'Data' ? 'bg-[var(--foreground)]/10 text-[var(--foreground)]' : 'text-[var(--foreground)]/40 hover:text-[var(--foreground)]/80')}
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
                 Data <span className="text-[10px] opacity-50 ml-1 font-mono">{SKILLS.data.length}</span>

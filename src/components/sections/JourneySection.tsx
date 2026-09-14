@@ -105,7 +105,7 @@ export function JourneySection() {
           {/* 2019 */}
           <div className="flex flex-col md:flex-row items-center justify-between w-full relative">
             <div className="w-full md:w-[45%] flex justify-end">
-              <div className="journey-card bg-[#111116] border border-blue-500/20 p-8 rounded-2xl shadow-xl hover:border-blue-500/40 transition-colors w-full text-right group">
+              <div className="journey-card bg-card border border-blue-500/20 p-8 rounded-2xl shadow-xl hover:border-blue-500/40 transition-colors w-full text-right group">
                 <div className="flex items-center justify-end gap-3 mb-4">
                   <h3 className="text-3xl font-bold text-blue-500 font-heading">2019</h3>
                   <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center">f</div>
@@ -125,7 +125,7 @@ export function JourneySection() {
             {/* Center Node */}
             <div className="journey-node absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-indigo-500 bg-black hidden md:block shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
             <div className="w-full md:w-[45%] flex justify-start">
-              <div className="journey-card bg-[#111116] border border-indigo-500/20 p-8 rounded-2xl shadow-xl hover:border-indigo-500/40 transition-colors w-full text-left group">
+              <div className="journey-card bg-card border border-indigo-500/20 p-8 rounded-2xl shadow-xl hover:border-indigo-500/40 transition-colors w-full text-left group">
                 <div className="flex items-center justify-start gap-3 mb-4">
                   <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-xs">🏆</div>
                   <h3 className="text-3xl font-bold text-indigo-500 font-heading">2020</h3>
@@ -139,7 +139,7 @@ export function JourneySection() {
           {/* 2022 */}
           <div className="flex flex-col md:flex-row items-center justify-between w-full relative">
             <div className="w-full md:w-[45%] flex justify-end">
-              <div className="journey-card bg-[#111116] border border-purple-500/20 p-8 rounded-2xl shadow-xl hover:border-purple-500/40 transition-colors w-full text-right group">
+              <div className="journey-card bg-card border border-purple-500/20 p-8 rounded-2xl shadow-xl hover:border-purple-500/40 transition-colors w-full text-right group">
                 <div className="flex items-center justify-end gap-3 mb-4">
                   <h3 className="text-3xl font-bold text-purple-500 font-heading">2022</h3>
                   <div className="w-8 h-8 rounded-full bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold">W</div>

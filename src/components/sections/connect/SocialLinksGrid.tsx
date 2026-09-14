@@ -33,7 +33,7 @@ export function SocialLinksGrid() {
           { name: "Telegram", user: "Contact me", color: "#0088cc", letter: "Tg" },
           { name: "Email", user: "contact@fakhry.com", color: "#ea4335", letter: "@" }
         ].map((social, i) => (
-          <a key={i} href="#" className="flex items-center justify-between p-4 rounded-2xl bg-[#111116] border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/30 hover:bg-[#16161d] transition-all group">
+          <a key={i} href="#" className="flex items-center justify-between p-4 rounded-2xl bg-card border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/30 hover:bg-card-hover transition-all group">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: social.bg || social.color }}>
                 {social.letter}
@@ -43,7 +43,7 @@ export function SocialLinksGrid() {
                 <p className="text-xs text-[var(--foreground)]/50">{social.user}</p>
               </div>
             </div>
-            <div className="w-8 h-8 rounded-full bg-[#1a1a24] border border-[var(--foreground)]/10 flex items-center justify-center text-[var(--foreground)]/50 group-hover:text-[var(--foreground)] group-hover:scale-110 transition-transform">
+            <div className="w-8 h-8 rounded-full bg-panel border border-[var(--foreground)]/10 flex items-center justify-center text-[var(--foreground)]/50 group-hover:text-[var(--foreground)] group-hover:scale-110 transition-transform">
               {'>'}
             </div>
           </a>

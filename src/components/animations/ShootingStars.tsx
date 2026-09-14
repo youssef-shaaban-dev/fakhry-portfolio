@@ -22,7 +22,7 @@ export function ShootingStars() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-[#0a0a0c]">
+    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-[var(--background)]">
       {/* Background glow to simulate deep space */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--accent)]/5 via-transparent to-transparent opacity-50 blur-[100px]"></div>
       
