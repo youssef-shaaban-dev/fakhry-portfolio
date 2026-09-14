@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
 
 export function Footer() {
   const t = useTranslations('Hero');
