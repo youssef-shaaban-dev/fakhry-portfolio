@@ -7,6 +7,7 @@ import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { CustomizationPanel } from '@/components/ui/CustomizationPanel';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { ShootingStars } from '@/components/animations/ShootingStars';
 import '@/app/globals.css';
 import { Inter, Rajdhani, Cairo } from 'next/font/google';
 
@@ -42,12 +43,8 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
-      <body className={`${inter.variable} ${rajdhani.variable} ${cairo.variable} font-sans antialiased overflow-x-hidden min-h-screen bg-[var(--background)] text-[var(--foreground)]`}>
-        {/* Diagonal Streaks Background */}
-        <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-          <div className="absolute top-[-20%] left-[-10%] w-[120%] h-[120%] bg-[linear-gradient(45deg,transparent_45%,var(--accent)_49%,transparent_51%)] opacity-[0.03] transform -rotate-12 scale-150 blur-[2px]"></div>
-          <div className="absolute top-[-30%] left-[20%] w-[120%] h-[120%] bg-[linear-gradient(45deg,transparent_45%,var(--accent)_49%,transparent_51%)] opacity-[0.02] transform -rotate-12 scale-150 blur-[4px]"></div>
-        </div>
+      <body className={`${inter.variable} ${rajdhani.variable} ${cairo.variable} font-sans antialiased overflow-x-hidden min-h-screen bg-transparent text-[var(--foreground)]`}>
+        <ShootingStars />
         <ClientProviders locale={locale} messages={messages}>
           <SmoothScroll>
             <Header />
