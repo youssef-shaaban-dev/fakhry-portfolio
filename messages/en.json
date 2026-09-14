@@ -1,0 +1,13 @@
+{
+  "Hero": {
+    "title": "Frontend Architect",
+    "subtitle": "Building high-performance, accessible, and beautiful web experiences.",
+    "cta": "View Projects"
+  },
+  "Settings": {
+    "title": "Customize",
+    "language": "Language",
+    "theme": "Theme",
+    "accent": "Accent Color"
+  }
+}
