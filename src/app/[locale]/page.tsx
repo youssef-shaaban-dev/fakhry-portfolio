@@ -236,6 +236,154 @@ export default function Home() {
           }
         ]}
       />
+      
+      {/* Connect Section */}
+      <section id="connect" className="w-full py-32 px-6 lg:px-12 relative z-10 flex flex-col items-center">
+        <FadeUp>
+          <h2 className="text-5xl md:text-7xl font-bold font-heading mb-4 text-center">
+            Stay <span className="text-[var(--accent)]">Connected</span>
+          </h2>
+          <p className="text-[var(--foreground)]/60 text-center mb-16 text-lg">
+            Find me across the web. Let&apos;s build something great together.
+          </p>
+        </FadeUp>
+
+        <div className="max-w-[1200px] w-full space-y-8">
+          
+          {/* Project Request Card */}
+          <FadeUp delay={0.2} y={30}>
+            <div className="w-full bg-[#111116] border border-[var(--foreground)]/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+              {/* Decorative glows */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-[80px] group-hover:bg-green-500/10 transition-colors"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--accent)]/5 rounded-full blur-[80px] group-hover:bg-[var(--accent)]/10 transition-colors"></div>
+              
+              <div className="relative z-10">
+                <div className="flex justify-between items-start mb-8">
+                  <div>
+                    <div className="text-[10px] font-bold text-[var(--accent)] tracking-[0.2em] uppercase mb-4">PREMIUM PROJECT REQUEST</div>
+                    <h3 className="text-4xl md:text-5xl font-heading font-bold mb-4">Your next project starts with a better brief.</h3>
+                    <p className="text-[var(--foreground)]/60 max-w-xl">A focused private intake that turns your idea into clear scope, timing and next steps.</p>
+                  </div>
+                  <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-500 text-xs font-bold uppercase tracking-widest">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div> BOOKING OPEN
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                  {[
+                    { num: "01", title: "Tell me what you need", desc: "Website • video • data • automation" },
+                    { num: "02", title: "Define scope and timing", desc: "Arabic or English - four quick steps" },
+                    { num: "03", title: "Choose your contact channel", desc: "WhatsApp username • Telegram" }
+                  ].map((step, i) => (
+                    <div key={i} className="bg-[#16161d] border border-[var(--foreground)]/10 rounded-2xl p-6 relative">
+                      <div className="text-[10px] font-bold text-[var(--accent)] absolute top-6 right-6">{step.num}</div>
+                      <div className="w-10 h-10 rounded-lg bg-[#1a1a24] border border-[var(--foreground)]/10 mb-12 flex items-center justify-center text-[var(--accent)]">
+                        {/* Placeholder icons */}
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                      </div>
+                      <h4 className="font-bold mb-2">{step.title}</h4>
+                      <p className="text-xs text-[var(--foreground)]/50">{step.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-[var(--foreground)]/10 pt-8">
+                  <div className="flex items-center gap-2 text-xs text-[var(--foreground)]/50">
+                    <span className="text-green-500">🛡️</span> Private contact - no account required
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <button className="px-6 py-3 rounded-full border border-[var(--foreground)]/20 text-sm font-semibold hover:bg-[var(--foreground)]/5 transition-colors">
+                      Open Concept Studio ✦
+                    </button>
+                    <button className="px-6 py-3 rounded-full bg-[var(--accent)] text-white text-sm font-semibold hover:shadow-[0_0_20px_var(--accent)] shadow-[var(--accent)]/30 transition-shadow">
+                      Build your project brief {'>'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Secure Dev Terminal Card */}
+          <FadeUp delay={0.4} y={30}>
+            <div className="w-full bg-[#111116] border border-[var(--foreground)]/10 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30"></div>
+              
+              <div className="flex items-center gap-6 relative z-10 w-full md:w-auto">
+                <div className="w-24 h-24 rounded-2xl bg-black border border-[var(--accent)]/30 shadow-[0_0_20px_var(--accent)] shadow-[var(--accent)]/20 flex items-center justify-center p-2 relative">
+                  <div className="absolute -bottom-2 -right-2 w-4 h-6 bg-green-500 rounded-sm animate-pulse"></div>
+                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=transparent" alt="Profile" className="w-full h-full object-cover rounded-xl opacity-80 mix-blend-screen" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold text-[var(--accent)] tracking-[0.2em] uppercase mb-2">SECURE DEV TERMINAL</div>
+                  <h3 className="text-2xl md:text-3xl font-heading font-bold mb-2">Enter the Fakhry developer mainframe.</h3>
+                  <p className="text-xs text-[var(--foreground)]/50 max-w-sm mb-4">Authenticate into a cinematic local shell with a live boot sequence, project intelligence and direct portfolio commands.</p>
+                  <div className="flex gap-2">
+                    <span className="px-2 py-1 rounded bg-[#1a1a24] text-[8px] tracking-widest text-[var(--foreground)]/60 border border-[var(--foreground)]/10">LIVE BOOT</span>
+                    <span className="px-2 py-1 rounded bg-[#1a1a24] text-[8px] tracking-widest text-[var(--foreground)]/60 border border-[var(--foreground)]/10">BILINGUAL SHELL</span>
+                  </div>
+                </div>
+              </div>
+              
+              <button className="w-full md:w-auto px-8 py-3 rounded-xl bg-[var(--accent)] text-white text-sm font-semibold hover:scale-105 transition-transform shrink-0 relative z-10">
+                Initialize Terminal {'->'}
+              </button>
+            </div>
+          </FadeUp>
+
+          {/* Social Links Grid */}
+          <FadeUp delay={0.6} y={30}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              
+              {/* Highlighted Kick Bar (spans full width on sm, col-span-2 on lg) */}
+              <a href="#" className="col-span-1 sm:col-span-2 lg:col-span-3 flex items-center justify-between p-4 rounded-2xl border border-green-500/30 bg-green-500/5 hover:bg-green-500/10 transition-colors group">
+                <div className="flex items-center gap-4">
+                  <div className="bg-green-500 text-black px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-black animate-pulse"></div> WATCH LIVE
+                  </div>
+                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center font-bold text-2xl text-black">K</div>
+                  <div>
+                    <h4 className="font-bold text-green-500">Kick</h4>
+                    <p className="text-xs text-green-500/60">@fakhry</p>
+                  </div>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-black/40 border border-green-500/30 flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+                  {'>'}
+                </div>
+              </a>
+
+              {/* Standard Social Links */}
+              {[
+                { name: "LinkedIn", user: "@fakhry", color: "#0A66C2", letter: "in" },
+                { name: "Behance", user: "@fakhry", color: "#1769ff", letter: "Bē" },
+                { name: "Instagram", user: "@fakhry", color: "#E4405F", letter: "Ig" },
+                { name: "TikTok", user: "@fakhry", color: "#fff", letter: "tk", bg: "#000" },
+                { name: "Facebook", user: "@fakhry", color: "#1877F2", letter: "f" },
+                { name: "Discord", user: "Join My Server", color: "#5865F2", letter: "Dc" },
+                { name: "Telegram", user: "Contact me", color: "#0088cc", letter: "Tg" },
+                { name: "Email", user: "contact@fakhry.com", color: "#ea4335", letter: "@" }
+              ].map((social, i) => (
+                <a key={i} href="#" className="flex items-center justify-between p-4 rounded-2xl bg-[#111116] border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/30 hover:bg-[#16161d] transition-all group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: social.bg || social.color }}>
+                      {social.letter}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-sm">{social.name}</h4>
+                      <p className="text-xs text-[var(--foreground)]/50">{social.user}</p>
+                    </div>
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-[#1a1a24] border border-[var(--foreground)]/10 flex items-center justify-center text-[var(--foreground)]/50 group-hover:text-[var(--foreground)] group-hover:scale-110 transition-transform">
+                    {'>'}
+                  </div>
+                </a>
+              ))}
+              
+            </div>
+          </FadeUp>
+          
+        </div>
+      </section>
 
     </div>
   );
