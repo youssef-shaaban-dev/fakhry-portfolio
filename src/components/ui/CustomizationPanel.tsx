@@ -66,9 +66,9 @@ export function CustomizationPanelBase() {
       
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <Dialog.Content data-lenis-prevent="true" className="fixed right-4 md:right-8 top-24 bottom-24 w-[340px] bg-[#0f0f13]/90 backdrop-blur-xl border border-[var(--foreground)]/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-6 z-50 overflow-y-auto data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right-1/2 data-[state=open]:slide-in-from-right-1/2 transition-transform duration-300">
+        <Dialog.Content data-lenis-prevent="true" className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 w-[340px] max-h-[calc(100vh-40px)] bg-[#0f0f13]/90 backdrop-blur-xl border border-[var(--foreground)]/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-5 z-50 overflow-y-auto data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right-1/2 data-[state=open]:slide-in-from-right-1/2 transition-transform duration-300">
           
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-5">
             <Dialog.Title className="text-sm font-bold font-heading tracking-[0.2em] text-[#ef4444] uppercase">
               {t('title')}
             </Dialog.Title>
@@ -82,20 +82,20 @@ export function CustomizationPanelBase() {
             </Dialog.Close>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-5">
             {/* Language Switcher */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <label className="text-[10px] font-bold text-[var(--foreground)]/50 uppercase tracking-[0.2em]">{t('language')}</label>
               <div className="flex bg-[#1a1a24] rounded-lg p-1.5 border border-[var(--foreground)]/5">
                 <button
                   onClick={() => toggleLanguage('en')}
-                  className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300", locale === 'en' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
+                  className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-300", locale === 'en' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
                 >
                   English
                 </button>
                 <button
                   onClick={() => toggleLanguage('ar')}
-                  className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300", locale === 'ar' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
+                  className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-300", locale === 'ar' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
                 >
                   عربى
                 </button>
@@ -103,18 +103,18 @@ export function CustomizationPanelBase() {
             </div>
 
             {/* Theme Switcher */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <label className="text-[10px] font-bold text-[var(--foreground)]/50 uppercase tracking-[0.2em]">THEME MODE</label>
               <div className="flex bg-[#1a1a24] rounded-lg p-1.5 border border-[var(--foreground)]/5">
                 <button
                   onClick={() => setTheme('dark')}
-                  className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300", theme !== 'light' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
+                  className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-300", theme !== 'light' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
                 >
                   Dark
                 </button>
                 <button
                   onClick={() => setTheme('light')}
-                  className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300", theme === 'light' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
+                  className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-all duration-300", theme === 'light' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}
                 >
                   Light
                 </button>
@@ -122,7 +122,7 @@ export function CustomizationPanelBase() {
             </div>
 
             {/* Accent Color */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <label className="text-[10px] font-bold text-[var(--foreground)]/50 uppercase tracking-[0.2em]">{t('accent')}</label>
               <div className="grid grid-cols-4 gap-3">
                 {COLORS.map((c) => (
@@ -130,7 +130,7 @@ export function CustomizationPanelBase() {
                     key={c.name}
                     onClick={() => setAccentColor(c.value)}
                     className={clsx(
-                      "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none relative",
+                      "w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none relative",
                       accentColor === c.value && "ring-1 ring-white ring-offset-2 ring-offset-[#0f0f13]"
                     )}
                     style={{ backgroundColor: c.value }}
@@ -145,25 +145,25 @@ export function CustomizationPanelBase() {
             </div>
 
             {/* FX Level */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <label className="text-[10px] font-bold text-[var(--foreground)]/50 uppercase tracking-[0.2em]">FX LEVEL</label>
               <div className="flex bg-[#1a1a24] rounded-lg p-1.5 border border-[var(--foreground)]/5">
-                <button onClick={() => setFxLevel('Low')} className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-colors", fxLevel === 'Low' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>Low</button>
-                <button onClick={() => setFxLevel('Mid')} className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-all", fxLevel === 'Mid' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>Mid</button>
-                <button onClick={() => setFxLevel('High')} className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-colors", fxLevel === 'High' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>High</button>
+                <button onClick={() => setFxLevel('Low')} className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-colors", fxLevel === 'Low' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>Low</button>
+                <button onClick={() => setFxLevel('Mid')} className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-all", fxLevel === 'Mid' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>Mid</button>
+                <button onClick={() => setFxLevel('High')} className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-colors", fxLevel === 'High' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>High</button>
               </div>
             </div>
             
             {/* Hover SFX */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <label className="text-[10px] font-bold text-[var(--foreground)]/50 uppercase tracking-[0.2em]">HOVER SFX</label>
               <div className="flex bg-[#1a1a24] rounded-lg p-1.5 border border-[var(--foreground)]/5">
-                <button onClick={() => setHoverSfx('On')} className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-colors", hoverSfx === 'On' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>On</button>
-                <button onClick={() => setHoverSfx('Off')} className={clsx("flex-1 py-2 text-xs font-semibold rounded-md transition-all", hoverSfx === 'Off' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>Off</button>
+                <button onClick={() => setHoverSfx('On')} className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-colors", hoverSfx === 'On' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>On</button>
+                <button onClick={() => setHoverSfx('Off')} className={clsx("flex-1 py-1.5 text-xs font-semibold rounded-md transition-all", hoverSfx === 'Off' ? 'bg-[#ef4444] text-white shadow-[0_0_15px_rgba(239,68,68,0.4)]' : 'text-[var(--foreground)]/60 hover:text-white')}>Off</button>
               </div>
             </div>
             
-            <button onClick={handleReset} className="w-full py-3 mt-4 text-xs font-semibold rounded-lg bg-[#1a1a24] text-[var(--foreground)]/50 hover:text-white transition-colors border border-[var(--foreground)]/5 active:scale-95">
+            <button onClick={handleReset} className="w-full py-2.5 mt-2 text-xs font-semibold rounded-lg bg-[#1a1a24] text-[var(--foreground)]/50 hover:text-white transition-colors border border-[var(--foreground)]/5 active:scale-95">
               Reset to default
             </button>
 
