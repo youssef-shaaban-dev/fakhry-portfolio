@@ -31,7 +31,7 @@ export function WorkCarousel({ title, subtitle, items, accentColor = "var(--acce
     if (!containerRef.current || !cardsWrapperRef.current) return;
 
     const ctx = gsap.context(() => {
-      let mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
         const cards = gsap.utils.toArray<HTMLElement>('.work-card');

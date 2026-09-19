@@ -1,4 +1,5 @@
 import { FadeUp } from '@/components/animations/FadeUp';
+import { Typewriter } from '@/components/ui/Typewriter';
 
 export function HeroSection() {
   return (
@@ -20,11 +21,16 @@ export function HeroSection() {
           </FadeUp>
 
           <div className="space-y-4 w-full">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold font-heading tracking-tight leading-[0.9]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight leading-[0.9]">
               <FadeUp delay={0.4} y={30}>
-                <div className="flex flex-wrap items-baseline gap-4">
-                  <span>Fakhry</span>
-                  <span className="text-[var(--accent)]">.<span className="text-[var(--foreground)]"></span></span>
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-wrap items-baseline gap-4">
+                    <span>Mohamed Fathy</span>
+                    <span className="text-[var(--accent)]">.</span>
+                  </div>
+                  <div className="text-4xl md:text-6xl lg:text-7xl mt-4 md:mt-6 h-[1.2em]">
+                    <Typewriter words={["Video Editor", "Data Analyst", "Content Creator"]} />
+                  </div>
                 </div>
               </FadeUp>
             </h1>
@@ -67,7 +73,7 @@ export function HeroSection() {
             <div className="relative w-full max-w-[800px] aspect-[4/3] perspective-[1000px] group">
               <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent)]/10 to-transparent blur-3xl rounded-full transform scale-110"></div>
               <div className="absolute inset-0 border border-[var(--foreground)]/10 bg-deep/80 backdrop-blur-md rounded-2xl shadow-2xl transform rotateX-[20deg] rotateY-[-15deg] rotateZ-[5deg] transition-transform duration-1000 group-hover:rotateX-[15deg] group-hover:rotateY-[-10deg] flex flex-col p-8 overflow-hidden">
-                <div className="text-[var(--accent)] font-heading text-xl font-bold mb-8">FAKHRY <span className="text-[var(--foreground)]">STUDIO</span></div>
+                <div className="text-[var(--accent)] font-heading text-xl font-bold mb-8">FATHY <span className="text-[var(--foreground)]">STUDIO</span></div>
                 
                 {/* Fake 3D objects */}
                 <div className="flex-1 relative">
