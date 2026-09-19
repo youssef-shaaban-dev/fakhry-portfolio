@@ -39,7 +39,7 @@ export function Header() {
       
       {/* Centered Navigation */}
       <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 pointer-events-auto gap-8">
-        {['About', 'Dev Work', 'Projects', 'Design', 'Connect'].map((item) => {
+        {['About', 'Skills', 'Projects', 'Journey', 'Connect'].map((item) => {
           const targetId = `#${item.toLowerCase().replace(' ', '-')}`;
           return (
             <a 

@@ -21,14 +21,13 @@ export function HeroSection() {
           </FadeUp>
 
           <div className="space-y-4 w-full">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading tracking-tight leading-[0.9]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight leading-[1.1]">
               <FadeUp delay={0.4} y={30}>
                 <div className="flex flex-col gap-2">
-                  <div className="flex flex-wrap items-baseline gap-4">
-                    <span>Mohamed Fathy</span>
-                    <span className="text-[var(--accent)]">.</span>
+                  <div>
+                    <span>Mohamed Fathy</span><span className="text-[var(--accent)]">.</span>
                   </div>
-                  <div className="text-4xl md:text-6xl lg:text-7xl mt-4 md:mt-6 h-[1.2em]">
+                  <div className="text-3xl md:text-5xl lg:text-6xl mt-2 md:mt-4 h-[1.2em]">
                     <Typewriter words={["Video Editor", "Data Analyst", "Content Creator"]} />
                   </div>
                 </div>
@@ -48,13 +47,31 @@ export function HeroSection() {
           </div>
           
           <FadeUp delay={0.8} y={30} className="flex flex-wrap items-center gap-4 pt-4">
-            <a href="#projects" className="group flex items-center gap-2 px-8 py-4 font-semibold text-white bg-[var(--accent)] rounded-full transition-all duration-300 shadow-[0_0_20px_var(--accent)] shadow-[var(--accent)]/20 hover:shadow-[0_0_30px_var(--accent)] hover:shadow-[var(--accent)]/40 hover:-translate-y-1 active:translate-y-0">
+            <a 
+              href="#projects" 
+              onClick={(e) => {
+                e.preventDefault();
+                import('gsap').then(({ default: gsap }) => {
+                  gsap.to(window, { duration: 1.5, scrollTo: { y: '#projects', autoKill: false }, ease: "power3.inOut" });
+                });
+              }}
+              className="group flex items-center gap-2 px-8 py-4 font-semibold text-white bg-[var(--accent)] rounded-full transition-all duration-300 shadow-[0_0_20px_var(--accent)] shadow-[var(--accent)]/20 hover:shadow-[0_0_30px_var(--accent)] hover:shadow-[var(--accent)]/40 hover:-translate-y-1 active:translate-y-0"
+            >
               <span>View My Work</span>
               <svg className="w-4 h-4 transform transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 19L20 5M20 5H10M20 5V15" />
               </svg>
             </a>
-            <a href="mailto:contact@fakhry.com" className="px-8 py-4 font-semibold text-[var(--foreground)] bg-transparent border border-[var(--foreground)]/10 rounded-full hover:bg-[var(--foreground)]/5 transition-colors duration-300">
+            <a 
+              href="#connect" 
+              onClick={(e) => {
+                e.preventDefault();
+                import('gsap').then(({ default: gsap }) => {
+                  gsap.to(window, { duration: 1.5, scrollTo: { y: '#connect', autoKill: false }, ease: "power3.inOut" });
+                });
+              }}
+              className="px-8 py-4 font-semibold text-[var(--foreground)] bg-transparent border border-[var(--foreground)]/10 rounded-full hover:bg-[var(--foreground)]/5 transition-colors duration-300"
+            >
               Start a project
             </a>
           </FadeUp>

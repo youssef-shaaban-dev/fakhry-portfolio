@@ -19,10 +19,11 @@ export default function Home() {
       
       <SkillsSection />
       
-      {/* Video Work Section */}
-      <WorkCarousel 
-        title="Video Projects"
-        subtitle="Cinematic AI-generated video ads and visual content crafted for global brands."
+      <div id="projects" className="pt-20 -mt-20">
+        {/* Video Work Section */}
+        <WorkCarousel 
+          title="Video Projects"
+          subtitle="Cinematic AI-generated video ads and visual content crafted for global brands."
         items={[
           {
             id: "v1",
@@ -44,6 +45,7 @@ export default function Home() {
           }
         ]}
       />
+      </div>
 
       {/* Data Work Section */}
       <WorkCarousel 

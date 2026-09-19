@@ -27,7 +27,7 @@ export function SkillsSection() {
   const totalSkills = SKILLS.video.length + SKILLS.data.length;
 
   return (
-    <section className="w-full py-32 px-6 lg:px-12 relative z-10 overflow-hidden bg-[var(--background)]">
+    <section id="skills" className="w-full py-32 px-6 lg:px-12 relative z-10 overflow-hidden bg-[var(--background)]">
       <div className="max-w-[1200px] mx-auto w-full">
         <FadeUp>
           <div className="mb-16">
