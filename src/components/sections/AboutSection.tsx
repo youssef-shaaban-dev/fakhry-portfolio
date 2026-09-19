@@ -105,11 +105,29 @@ export function AboutSection() {
               <div>
                 <h4 className="text-[10px] font-bold text-[var(--foreground)]/50 tracking-widest uppercase mb-6">MY TOOLKIT / BUILT AROUND YOUR IDEA</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {['Video Editing', 'Data Analysis', 'Motion Graphics', 'AI Integrations'].map((tool, i) => (
-                    <div key={i} className="p-5 rounded-xl border border-[var(--foreground)]/10 bg-card-hover hover:bg-panel hover:border-[var(--accent)]/30 transition-all group">
-                      <div className="text-sm font-bold mb-1 group-hover:text-[var(--accent)] transition-colors">{tool}</div>
+                  {[
+                    { name: 'Video Editing', target: '#projects' },
+                    { name: 'Data Analysis', target: '#data-projects' },
+                    { name: 'Motion Graphics', target: '#projects' },
+                    { name: 'AI Integrations', target: '#data-projects' }
+                  ].map((tool, i) => (
+                    <a 
+                      key={i} 
+                      href={tool.target}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        gsap.to(window, { duration: 1.5, scrollTo: { y: tool.target, autoKill: false }, ease: "power3.inOut" });
+                      }}
+                      className="block p-5 rounded-xl border border-[var(--foreground)]/10 bg-card-hover hover:bg-panel hover:border-[var(--accent)]/30 transition-all group cursor-pointer"
+                    >
+                      <div className="flex justify-between items-center mb-1">
+                        <div className="text-sm font-bold group-hover:text-[var(--accent)] transition-colors">{tool.name}</div>
+                        <svg className="w-3 h-3 text-[var(--foreground)]/30 group-hover:text-[var(--accent)] transform transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 19L20 5M20 5H10M20 5V15" />
+                        </svg>
+                      </div>
                       <div className="text-xs text-[var(--foreground)]/50">Modern workflow solutions</div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>

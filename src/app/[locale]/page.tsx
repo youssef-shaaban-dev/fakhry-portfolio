@@ -48,30 +48,32 @@ export default function Home() {
       </div>
 
       {/* Data Work Section */}
-      <WorkCarousel 
-        title="Data Analytics"
-        subtitle="Complex data pipelines, visualizations, and intelligent systems."
-        items={[
-          {
-            id: "d1",
-            title: "E-Commerce Pipeline Analytics",
-            tags: ["PYTHON", "POWER BI"],
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-          },
-          {
-            id: "d2",
-            title: "Predictive Sales Modeling",
-            tags: ["MACHINE LEARNING", "SQL"],
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
-          },
-          {
-            id: "d3",
-            title: "Real-time Operations Dashboard",
-            tags: ["TABLEAU", "DATA WAREHOUSING"],
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-          }
-        ]}
-      />
+      <div id="data-projects" className="pt-20 -mt-20">
+        <WorkCarousel 
+          title="Data Analytics"
+          subtitle="Complex data pipelines, visualizations, and intelligent systems."
+          items={[
+            {
+              id: "d1",
+              title: "E-Commerce Pipeline Analytics",
+              tags: ["PYTHON", "POWER BI"],
+              image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+            },
+            {
+              id: "d2",
+              title: "Predictive Sales Modeling",
+              tags: ["MACHINE LEARNING", "SQL"],
+              image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+            },
+            {
+              id: "d3",
+              title: "Real-time Operations Dashboard",
+              tags: ["TABLEAU", "DATA WAREHOUSING"],
+              image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+            }
+          ]}
+        />
+      </div>
       
       
       <ConnectSection />
