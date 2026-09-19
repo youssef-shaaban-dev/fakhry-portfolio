@@ -83,37 +83,112 @@ export function HeroSection() {
           </FadeUp>
         </div>
 
-        {/* Right Content - 3D Graphic Placeholder */}
+        {/* Right Content - 3D Graphic */}
         <div className="hidden lg:flex justify-end relative h-full min-h-[600px] w-full">
           <FadeUp delay={0.5} y={50} duration={1.5} className="w-full h-full absolute inset-0 flex items-center justify-center">
-            {/* Complex 3D Placeholder mimicking the iso factory */}
-            <div className="relative w-full max-w-[800px] aspect-[4/3] perspective-[1000px] group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent)]/10 to-transparent blur-3xl rounded-full transform scale-110"></div>
-              <div className="absolute inset-0 border border-[var(--foreground)]/10 bg-deep/80 backdrop-blur-md rounded-2xl shadow-2xl transform rotateX-[20deg] rotateY-[-15deg] rotateZ-[5deg] transition-transform duration-1000 group-hover:rotateX-[15deg] group-hover:rotateY-[-10deg] flex flex-col p-8 overflow-hidden">
-                <div className="text-[var(--accent)] font-heading text-xl font-bold mb-8">FATHY <span className="text-[var(--foreground)]">STUDIO</span></div>
-                
-                {/* Fake 3D objects */}
-                <div className="flex-1 relative">
-                  <div className="absolute bottom-10 left-10 w-32 h-8 bg-panel rounded border border-[var(--accent)]/30 transform -skew-x-12 flex items-center justify-center text-[10px] text-[var(--foreground)]/50 tracking-widest shadow-[0_0_15px_var(--accent)] shadow-[var(--accent)]/20">WEBSITE</div>
-                  <div className="absolute bottom-10 left-48 w-24 h-8 bg-[var(--accent)] rounded border border-[var(--foreground)]/20 transform -skew-x-12 flex items-center justify-center text-[10px] text-white tracking-widest shadow-[0_0_30px_var(--accent)] shadow-[var(--accent)]/40">APP</div>
-                  
-                  <div className="absolute top-10 right-10 w-64 h-64 border border-[var(--foreground)]/10 bg-card rounded-xl transform rotate-12 shadow-2xl overflow-hidden">
-                    <div className="h-6 w-full border-b border-[var(--foreground)]/10 bg-deep flex items-center px-3 gap-1.5">
-                      <div className="w-2 h-2 rounded-full bg-[var(--foreground)]/20"></div>
-                      <div className="w-2 h-2 rounded-full bg-[var(--foreground)]/20"></div>
-                      <div className="w-2 h-2 rounded-full bg-[var(--foreground)]/20"></div>
+            
+            <div className="relative w-full max-w-[600px] aspect-[4/3] perspective-[1500px] group flex items-center justify-center mt-10">
+              
+              {/* Background ambient light */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent)]/20 to-transparent blur-[80px] rounded-full transform scale-110 pointer-events-none"></div>
+              
+              <div 
+                className="relative w-full h-full rotate-x-[15deg] rotate-y-[-15deg] group-hover:rotate-x-[5deg] group-hover:rotate-y-[-5deg] transition-transform duration-1000 ease-out"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                {/* Main Player Window */}
+                <div 
+                  className="absolute inset-0 bg-black/40 backdrop-blur-2xl border border-[var(--foreground)]/10 rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col"
+                  style={{ transform: "translateZ(0px)" }}
+                >
+                  {/* Top Bar */}
+                  <div className="h-10 border-b border-[var(--foreground)]/10 bg-[var(--foreground)]/5 flex items-center justify-between px-4">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                     </div>
-                    <div className="p-4 h-full flex flex-col justify-center items-center opacity-50">
-                      <div className="w-24 h-2 bg-[var(--foreground)]/10 rounded mb-4"></div>
-                      <div className="w-32 h-2 bg-[var(--accent)]/30 rounded mb-2"></div>
-                      <div className="w-20 h-2 bg-[var(--foreground)]/10 rounded"></div>
+                    <div className="text-[10px] md:text-xs font-mono text-[var(--foreground)]/40 tracking-widest uppercase">Fathy_Showreel_2026.mp4</div>
+                    <div className="flex gap-1">
+                      <div className="w-1 h-1 rounded-full bg-[var(--foreground)]/30"></div>
+                      <div className="w-1 h-1 rounded-full bg-[var(--foreground)]/30"></div>
+                      <div className="w-1 h-1 rounded-full bg-[var(--foreground)]/30"></div>
                     </div>
                   </div>
+                  
+                  {/* Video/Image Area */}
+                  <div className="flex-1 relative bg-black flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200" 
+                      alt="Abstract Tech" 
+                      className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[20s] ease-linear"
+                    />
+                    
+                    {/* Glowing Play Button */}
+                    <div className="w-20 h-20 rounded-full bg-[var(--accent)]/20 border border-[var(--accent)]/40 flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_var(--accent)] shadow-[var(--accent)]/30 group-hover:scale-110 transition-transform duration-500 cursor-pointer z-10">
+                      <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-2"></div>
+                    </div>
+
+                    {/* Overlay Grid */}
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:40px_40px] pointer-events-none mix-blend-overlay"></div>
+                  </div>
+
+                  {/* Bottom Controls / Data timeline */}
+                  <div className="h-16 border-t border-[var(--foreground)]/10 bg-black/40 flex items-center px-6 gap-4">
+                    <div className="text-xs font-mono text-[var(--accent)]">00:01:24</div>
+                    <div className="flex-1 h-1.5 bg-[var(--foreground)]/10 rounded-full relative overflow-hidden flex items-center">
+                      <div className="absolute top-0 left-0 bottom-0 w-[45%] bg-[var(--accent)] rounded-full"></div>
+                      <div className="absolute left-[45%] w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_10px_white] -translate-x-1/2"></div>
+                    </div>
+                    <div className="text-xs font-mono text-[var(--foreground)]/40">00:03:00</div>
+                  </div>
+                </div>
+
+                {/* Floating Data Analytics Card */}
+                <div 
+                  className="absolute -right-8 -bottom-16 w-64 h-auto bg-card/90 backdrop-blur-xl border border-[var(--foreground)]/10 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] p-5 flex flex-col gap-4"
+                  style={{ transform: "translateZ(80px)" }}
+                >
+                  <div className="flex items-center justify-between border-b border-[var(--foreground)]/10 pb-2">
+                    <span className="text-[10px] font-bold text-[var(--foreground)]/50 tracking-widest uppercase">Performance Data</span>
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]"></span>
+                    </span>
+                  </div>
+                  
+                  {/* Fake Audio/Data Waves */}
+                  <div className="flex items-end gap-1.5 h-12 w-full mt-2">
+                    {[40, 70, 45, 90, 60, 30, 80, 50, 100, 65, 30, 85].map((val, i) => (
+                      <div 
+                        key={i} 
+                        className="flex-1 bg-[var(--accent)] rounded-t-sm transition-all duration-300"
+                        style={{ height: `${val}%`, opacity: 0.3 + (val/150) }}
+                      ></div>
+                    ))}
+                  </div>
+
+                  <div className="text-[10px] font-mono text-[var(--foreground)]/60 flex justify-between mt-2">
+                    <span>Render: 4K 60fps</span>
+                    <span className="text-[var(--accent)]">Active</span>
+                  </div>
+                </div>
+
+                {/* Floating Tool Icons */}
+                <div 
+                  className="absolute -left-6 top-16 w-14 h-14 bg-black/80 backdrop-blur-xl border border-purple-500/30 rounded-2xl flex items-center justify-center shadow-2xl"
+                  style={{ transform: "translateZ(120px)" }}
+                >
+                  <span className="text-lg font-bold text-purple-400 tracking-tighter">Pr</span>
                 </div>
                 
-                {/* Decorative lines */}
-                <div className="absolute bottom-0 right-8 w-px h-32 bg-gradient-to-t from-[var(--accent)] to-transparent"></div>
-                <div className="absolute top-0 right-16 w-px h-16 bg-gradient-to-b from-[var(--accent)] to-transparent opacity-50"></div>
+                <div 
+                  className="absolute left-8 -top-8 w-12 h-12 bg-black/80 backdrop-blur-xl border border-green-500/30 rounded-2xl flex items-center justify-center shadow-2xl"
+                  style={{ transform: "translateZ(60px)" }}
+                >
+                  <span className="text-sm font-bold text-green-400 tracking-tighter">Py</span>
+                </div>
+
               </div>
             </div>
           </FadeUp>

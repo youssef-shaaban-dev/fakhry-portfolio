@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --accent: #3b82f6; /* default blue */
+  --accent: #ff3344; /* default red */
   --card-bg: #f3f4f6;
   --card-hover: #e5e7eb;
   --panel-bg: #e5e7eb;
@@ -13,7 +13,7 @@
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --accent: #3b82f6;
+  --accent: #ff3344;
   --card-bg: #111116;
   --card-hover: #16161d;
   --panel-bg: #1a1a24;

@@ -17,14 +17,14 @@ interface ConfigState {
 export const useConfigStore = create<ConfigState>()(
   persist(
     (set) => ({
-      accentColor: '#3b82f6', // default to blue
+      accentColor: '#ff3344', // default to red
       setAccentColor: (color: string) => set({ accentColor: color }),
       fxLevel: 'Mid',
       setFxLevel: (level: FxLevel) => set({ fxLevel: level }),
       hoverSfx: 'Off',
       setHoverSfx: (sfx: HoverSfx) => set({ hoverSfx: sfx }),
       resetToDefault: () => set({
-        accentColor: '#3b82f6',
+        accentColor: '#ff3344',
         fxLevel: 'Mid',
         hoverSfx: 'Off'
       }),
